@@ -26,7 +26,8 @@ formatExport <- function(x)
     'BloodSample',
     'BloodSampleComment',
     'UrineSample',
-    'UrineSampleComment'
+    'UrineSampleComment',
+    'CompletionDate'
   )
 
   names(x) <- RENAME
@@ -50,6 +51,33 @@ formatExport <- function(x)
   x$PostCode <- gsub(' ', '', x$PostCode)
 
   x$ContactNumber <- gsub(' ', '', x$ContactNumber)
+
+  x$TITLE <- toupper(x$TITLE)
+  x$TITLE <- gsub('/', '', x$TITLE)
+  x$TITLE <- gsub('\\.', '', x$TITLE)
+
+
+  x <- x %>% tibble::add_column(., GENDER = NA, .after = 'TITLE')
+
+  female_dict <- c('MISS', 'MRS', 'MS')
+  male_dict <- c('MR')
+
+  female_id <- which(x$TITLE %in% female_dict)
+  male_id <- which(x$TITLE %in% male_dict)
+  unknown_id <- which(!x$TITLE %in% c(female_dict, male_dict))
+
+
+  x$GENDER[female_id] <- 'FEMALE'
+  x$GENDER[male_id] <- 'MALE'
+  x$GENDER[unknown_id] <- 'UNKNOWN'
+
+  relative_distance <- location_distance(x)
+
+  x <- x %>% dplyr::mutate(RelativeDistance = relative_distance)
+
+  xhash <- hash_code(x)
+
+  x <- x %>% dplyr::mutate(HASH = xhash)
 
   return(x)
 
