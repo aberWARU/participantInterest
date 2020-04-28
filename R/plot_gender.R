@@ -6,6 +6,8 @@
 #' @return a `ggplot` object
 #'
 #' @export
+#' @importFrom ggplot2 ggplot aes geom_bar theme_bw labs scale_fill_manual theme element_text guides
+#' @importFrom magrittr %>%
 
 plot_gender <- function(x)
 {
