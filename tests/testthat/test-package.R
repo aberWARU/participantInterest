@@ -11,6 +11,7 @@ test_that('format-export', {
   format_data <- formatExport(example_data)
 
   expect_true(nrow(format_data) == nrow(example_data))
-  expect_true(ncol(format_data) == ncol(example_data))
+  expect_true(ncol(format_data) > ncol(example_data))
+  expect_true(ncol(format_data) == 21)
 
 })
