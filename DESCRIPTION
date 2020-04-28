@@ -15,7 +15,9 @@ Imports:
     stringr,
     PostcodesioR,
     leaflet,
-    geosphere
+    geosphere,
+    openssl,
+    tibble
 Suggests:
     readr,
     testthat,
