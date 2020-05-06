@@ -52,6 +52,8 @@ formatExport <- function(x)
 
   x$ContactNumber <- gsub(' ', '', x$ContactNumber)
 
+  x$CompletionDate <- as.Date(x$CompletionDate)
+
   x$TITLE <- toupper(x$TITLE)
   x$TITLE <- gsub('/', '', x$TITLE)
   x$TITLE <- gsub('\\.', '', x$TITLE)
@@ -77,7 +79,7 @@ formatExport <- function(x)
 
   xhash <- hash_code(x)
 
-  x <- x %>% dplyr::mutate(HASH = xhash)
+  x <- x %>% dplyr::mutate(HASH = xhash, NOTES = '')
 
   return(x)
 
