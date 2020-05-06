@@ -40,13 +40,35 @@ checkData <- function(x)
 
   email_error <- purrr::map_lgl(x$EmailAddress, validateEmail)
 
-  email_error_idx <- which(idx == FALSE)
+  email_error_idx <- which(email_error == FALSE)
+
+
+  # contact number erorr
+
+  contact_number_length <- purrr::map_dbl(x$ContactNumber, nchar)
+
+  contact_number_erorr_idx <- which(contact_number_length > 12)
+
+  # forename erorr
+
+  forename_length <- purrr::map_dbl(x$Forename, nchar)
+
+  forename_error_idx <- which(forename_length > 10)
+
+  # surname erorr
+
+  surname_length <- purrr::map_dbl(x$Surname, nchar)
+
+  surname_error_idx <- which(surname_length > 15)
 
   x <-
-    x %>% tibble::add_column(DOB_ERROR = 0,
-                             .after = 'HASH') %>% tibble::add_column(DIST_ERROR = 0,
-                                                                     .after = 'HASH') %>% tibble::add_column(EMAIL_ERROR = 0,
-                                                                                                             .after = 'HASH')
+    x %>% tibble::add_column(DOB_ERROR = 0, .after = 'HASH') %>%
+    tibble::add_column(DIST_ERROR = 0, .after = 'HASH') %>%
+    tibble::add_column(EMAIL_ERROR = 0, .after = 'HASH') %>%
+    tibble::add_column(CONTACT_NUMBER_ERROR = 0, .after = 'HASH') %>%
+    tibble::add_column(FORENAME_ERROR = 0, .after = 'HASH') %>%
+    tibble::add_column(SURNAME_ERROR = 0, .after = 'HASH')
+
 
   if (length(dob_error_idx) > 0) {
     x$DOB_ERROR[dob_error_idx] <- 1
@@ -58,6 +80,18 @@ checkData <- function(x)
 
   if (length(email_error_idx) > 0) {
     x$EMAIL_ERROR[email_error_idx] <- 1
+  }
+
+  if (length(contact_number_erorr_idx) > 0) {
+    x$CONTACT_NUMBER_ERROR[contact_number_erorr_idx] <- 1
+  }
+
+  if (length(forename_error_idx) > 0) {
+    x$FORENAME_ERROR[forename_error_idx] <- 1
+  }
+
+  if (length(surname_error_idx) > 0) {
+    x$SURNAME_ERROR[surname_error_idx] <- 1
   }
 
   return(x)
