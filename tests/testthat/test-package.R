@@ -12,6 +12,6 @@ test_that('format-export', {
 
   expect_true(nrow(format_data) == nrow(example_data))
   expect_true(ncol(format_data) > ncol(example_data))
-  expect_true(ncol(format_data) == 21)
+  expect_true(ncol(format_data) == 22)
 
 })
