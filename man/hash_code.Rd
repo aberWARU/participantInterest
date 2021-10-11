@@ -7,7 +7,7 @@
 hash_code(x)
 }
 \arguments{
-\item{x}{a `tibble` of formatted data}
+\item{x}{a \code{tibble} of formatted data}
 }
 \value{
 a numeric vector of distance in km

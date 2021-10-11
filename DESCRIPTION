@@ -27,4 +27,5 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/aberWARU/participantInterest
 BugReports: https://github.com/aberWARU/participantInterest/issues
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)

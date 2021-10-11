@@ -1,7 +1,7 @@
 #' Format Recruitment Export
 #'
 #' The recruitment database is populated using a Jisc survey which is e-mailed out to potential contacts. This function
-#' formats the direct export from Jisc ready for validation and upload using `waruDB`
+#' formats the direct export from Jisc ready for validation and upload.`
 #'
 #' @param x a `tibble` of the raw Jisc output using `readr::read_csv`
 #' @return a `tibble`

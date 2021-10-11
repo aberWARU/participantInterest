@@ -7,12 +7,12 @@
 formatExport(x)
 }
 \arguments{
-\item{x}{a `tibble` of the raw Jisc output using `readr::read_csv`}
+\item{x}{a \code{tibble} of the raw Jisc output using \code{readr::read_csv}}
 }
 \value{
-a `tibble`
+a \code{tibble}
 }
 \description{
 The recruitment database is populated using a Jisc survey which is e-mailed out to potential contacts. This function
-formats the direct export from Jisc ready for validation and upload using `waruDB`
+formats the direct export from Jisc ready for validation and upload using \code{waruDB}
 }

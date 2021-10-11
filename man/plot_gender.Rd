@@ -7,10 +7,10 @@
 plot_gender(x)
 }
 \arguments{
-\item{x}{a `tibble` of formatted data which has been created using `formatExport``}
+\item{x}{a \code{tibble} of formatted data which has been created using `formatExport``}
 }
 \value{
-a `ggplot` object
+a \code{ggplot} object
 }
 \description{
 Produce a simple bar plot of the number of records by Gender

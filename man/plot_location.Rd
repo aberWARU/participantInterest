@@ -7,10 +7,10 @@
 plot_location(x)
 }
 \arguments{
-\item{x}{a `tibble` of formatted data which has been created using `formatExport``}
+\item{x}{a \code{tibble} of formatted data which has been created using `formatExport``}
 }
 \value{
-a `leaflet` map object
+a \code{leaflet} map object
 }
 \description{
 Plot locations on interactive map

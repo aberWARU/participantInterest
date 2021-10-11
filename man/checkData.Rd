@@ -7,10 +7,10 @@
 checkData(x)
 }
 \arguments{
-\item{x}{a `tibble` of formatted data that has been created using `formatExport`}
+\item{x}{a \code{tibble} of formatted data that has been created using \code{formatExport}}
 }
 \value{
-a `tibble`
+a \code{tibble}
 }
 \description{
 Flag up any potential erorrs
